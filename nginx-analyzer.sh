@@ -13,3 +13,4 @@ awk '{print $9}' "$Log_file" | sort | uniq -c | sort | head -n 5 | awk '{print $
 echo
 
 echo "Top 5 user agents"
+awk -F\" '{print $6}' "$Log_file" | sort | uniq -c | sort -nr | head -n 5| awk '{for(i=2; i<=NF; i++) printf $i " "; print "- " $1 " requests"}'
